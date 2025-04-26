@@ -1,0 +1,260 @@
+/* Global Styles */
+:root {
+  --primary-color: #1e3a5f;
+  --secondary-color: #3498db;
+  --text-color: #ffffff;
+  --background-color: rgba(30, 58, 95, 0.8);
+  --sidebar-color: rgba(20, 40, 64, 0.9);
+  --hover-color: rgba(31, 75, 112, 0.9);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background: var(--primary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  display: flex;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Animated Background */
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: url('download (2).jpeg') no-repeat center center;
+  background-size: cover;
+}
+
+.cloud {
+  position: absolute;
+  width: 150px;
+  height: 80px;
+  background: url('cloud-with-ai-generated-free-png.webp') no-repeat center center;
+  background-size: contain;
+  opacity: 0.8;
+  animation: moveClouds linear infinite;
+  z-index: -1;
+}
+
+.cloud:nth-child(1) { 
+  top: 20%; 
+  left: -15%; 
+  animation-duration: 80s; 
+}
+.cloud:nth-child(2) { 
+  top: 50%; 
+  left: -10%; 
+  animation-duration: 100s; 
+}
+.cloud:nth-child(3) { 
+  top: 75%; 
+  left: -5%; 
+  animation-duration: 120s; 
+}
+
+@keyframes moveClouds {
+  from { left: -20%; }
+  to { left: 120%; }
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: var(--sidebar-color);
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+.sidebar h1 {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.sidebar ul {
+  list-style: none;
+}
+
+.sidebar li {
+  margin-bottom: 1rem;
+}
+
+.sidebar a {
+  color: var(--text-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.3s ease;
+}
+
+.sidebar a:hover,
+.sidebar .active a {
+  color: var(--secondary-color);
+}
+
+/* Main Content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+.search-bar {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px 0 0 5px;
+}
+
+.search-bar button {
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.search-bar button:hover {
+  background-color: #2980b9;
+}
+
+/* Current Weather */
+.current-weather {
+  background: var(--background-color);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.weather-info {
+  flex: 1;
+}
+
+.temp-container {
+  display: flex;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.temp-container h3 {
+  font-size: 3rem;
+  margin-right: 1rem;
+}
+
+.weather-details {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.detail {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.detail .label {
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+.weather-icon, .forecast-icon {
+  width: 50px; /* Adjust this value */
+  height: 50px; /* Adjust this value */
+}
+
+
+/* Forecast */
+.forecast-section {
+  background: var(--background-color);
+  border-radius: 10px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+}
+
+.forecast {
+  display: flex;
+  overflow-x: auto;
+  gap: 0.4rem;
+  padding: 0.5rem 0;
+  scroll-snap-type: x mandatory;
+}
+
+.forecast-day {
+  flex: 0 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+  padding: 0.5rem;
+  text-align: center;
+  min-width: 80px;
+  scroll-snap-align: start;
+}
+
+/* Hourly Chart */
+.hourly-chart {
+  background: var(--background-color);
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+/* Air Quality Indicator */
+.air-quality {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.air-quality.good { background-color: #4CAF50; }
+.air-quality.moderate { background-color: #FFC107; }
+.air-quality.unhealthy { background-color: #FF5722; }
+.air-quality.very-unhealthy { background-color: #9C27B0; }
+.air-quality.hazardous { background-color: #795548; }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+  }
+
+  .main-content {
+    padding: 1rem;
+  }
+
+  .current-weather,
+  .weather-details {
+    flex-direction: column;
+  }
+}
+

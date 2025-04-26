@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Weather Forecast Pro</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <div class="background">
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+      <div class="cloud"></div>
+    </div>
+
+    <aside class="sidebar">
+      <h1>Weather Pro</h1>
+      <nav>
+        <ul>
+          <li class="active"><a href="#current">Current</a></li>
+          <li><a href="#forecast">Forecast</a></li>
+          <li><a href="#hourly">Hourly</a></li>
+        </ul>
+      </nav>
+    </aside>
+
+    <main class="main-content">
+      <div class="search-bar">
+        <input type="text" id="location" placeholder="Search for location">
+        <button id="searchBtn">Search</button>
+      </div>
+
+      <section id="current" class="current-weather">
+        <div class="weather-info">
+          <h2 id="city">Loading...</h2>
+          <div class="temp-container">
+            <h3 id="temperature">--°C</h3>
+            <img id="weather-icon" src="" alt="Weather icon">
+          </div>
+          <p id="weather-condition">--</p>
+          <p id="description">Loading weather information...</p>
+        </div>
+        <div class="weather-details">
+          <div class="detail">
+            <span class="label">Sunrise:</span>
+            <span id="sunrise">--:--</span>
+          </div>
+          <div class="detail">
+            <span class="label">Sunset:</span>
+            <span id="sunset">--:--</span>
+          </div>
+          <div class="detail">
+            <span class="label">Air Quality:</span>
+            <span id="air-quality">--</span>
+          </div>
+          <div class="detail">
+            <span class="label">Wind:</span>
+            <span id="wind">-- km/h</span>
+          </div>
+          <div class="detail">
+            <span class="label">Humidity:</span>
+            <span id="humidity">--%</span>
+          </div>
+          <div class="detail">
+            <span class="label">Pressure:</span>
+            <span id="pressure">-- mb</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="forecast" class="forecast-section">
+        <h3>5 Day Forecast</h3>
+        <div class="forecast"></div>
+      </section>
+
+      <section id="hourly" class="hourly-chart">
+        <h3>Hourly Forecast</h3>
+        <canvas id="hourlyChart"></canvas>
+      </section>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
